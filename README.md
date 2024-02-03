@@ -6,7 +6,14 @@ I am using:
 * Java 17
 * IntelliJ
 
-I learned how to use Sprin Initializr by navigating to this link:
+I learned how to use Spring Initializr by navigating to this link:
 
-[Spring Initializr](https://start.spring.io/)
+[Spring Initializr link](https://start.spring.io/)
 
+Here is the configuration I used, base on the course and, before I clicked on GENERATE CTRL + <-| button
+![Spring Boot Initializr](img/springInitializr.png)
+
+Do NOT FORGET to add Spring Web in the Dependencies!
+
+After we clicked on the GENERATE CTRL + <-| button and Zip file will be downloaded in our browser.
+Then we will need to unZip the file an import into our IDE as new project.
