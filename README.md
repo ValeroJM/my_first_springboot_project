@@ -17,3 +17,10 @@ Do NOT FORGET to add Spring Web in the Dependencies!
 
 After we clicked on the GENERATE CTRL + <-| button and Zip file will be downloaded in our browser.
 Then we will need to unZip the file an import into our IDE as new project.
+
+## 2. I learned how to set up a response from a server
+I used **@RestController** and **@RequestMapping("/yourPath")** annotations
+
+See classes:
+* CourseController
+* Course
