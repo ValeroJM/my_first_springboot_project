@@ -24,3 +24,63 @@ I used **@RestController** and **@RequestMapping("/yourPath")** annotations
 See classes:
 * CourseController
 * Course
+
+## 3. I learned about Spring Boot Starting Project
+a) To build a **REST API**, I need:
+* Spring
+* Spring MVC
+* Tomcat
+* JSON conversion
+
+b) To build a **Unit Tests**, I need:
+* Spring Test
+* JUnit / TestNG
+* Mockito
+
+But all of these are integrated within Spring Boot.
+
+With Spring Boot, you can also build:
+* Spring Boot Starter Data JPA
+* Spring Boot Starter JDBC
+* Spring Boot Starter Security - (REST API Secure)
+
+## 4. I learned about Spring Boot Autoconfiguration
+I learned from the Step 07 from O'REALLY course I mentioned on top
+
+## 5. I learned about Sprig Boot DevTools
+I learned that the main goal of this DevTools is to avoid user to stop the server and re-start it again. So each time a change happened in the code the server will re-star automatically.
+
+To use is we need to import the Spring Boot DevTools dependence in our pom.xml file as shown in Step 08 from O'REALLY course I am following to learn Spring Boot.
+
+## 6. I learned about Profiles
+Profiles will help us to create different environments.
+
+Environment example: 
+* dev/rnd
+* qa
+* uat
+* stage
+* prod
+
+Each environment will have a profile with different configuration.
+
+To configure then we need to follow the next steps:
+1. Navigate to "application.properties" (Path: src/main/resources)
+2. Inside the file define the logger level by typing "logging.level.org.springframework=<yourDesireLoggerLevel>". There are different logger levels:
+   * TRACE - It will print everything that is logged in all the levels
+   * DEBUG - It will print a lot more information
+   * INFO - It will print all the info in full level
+   * WARNING - Similar to ERROR but with a bit more information
+   * ERROR - Only error and exceptions will be logged
+   * OFF - It will not record any logs
+3. Copy and past "application.properties" renaming it adding "-environment" to the name. Ex.: "application **-dev**.properties" for a profile for dev environment.
+5. For our project we have created 3 application.properties files for each environment 2 in our case:
+   * application.properties - with "debug" logger level
+   * application-dev.properties - for dev environment - with "trace" logger level
+   * application-prod.properties - for prod environment - with "info" logger level
+5. To create a profile in any of the properties file, we need to open "application.properties" and add: "spring.profiles.active=<myEnvironment>". In our example: "spring.profiles.active=prod" and whichever we configured in the "application.properties" will be used as configuration profile.
+
+Check **"application.properties"** files:
+* application.properties
+* application-dev.properties
+* application-prod.properties
