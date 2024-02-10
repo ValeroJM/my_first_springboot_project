@@ -84,3 +84,28 @@ Check **"application.properties"** files:
 * application.properties
 * application-dev.properties
 * application-prod.properties
+
+## 7. I learned how to set complex profile configurations
+1. We created in "application.properties" our desire properties. For our example we used (Open application.properties for more details):
+   * currency-service.url=http://default.in28minutes.com
+   * currency-service.username=defaultusername
+   * currency-service.key=defaultkey
+2. Then we created a new class "CurrencyServiceConfiguration" (Open CurrencyServiceConfiguration.java for more details) and performed the next steps:
+   * We need to use @ConfigurationProperties()
+   * Inside of the parenthesis, we will use a prefix with the name of the object of our configuration. For our example: "prefix="currency-service""
+   * Inside of the class, we will create the different properties as private. For our example: url, username and key
+   * We generate the getters and setter for our properties.
+   * We add the annotation @Component in between our @ConfigurationProperties(prefix="currency-service") and the class
+   * Now we can come back to our src/main/java/resources/application.properties file and add the values to the properties we created for this complex configuration
+3. We duplicated CourseController with the name CurrencyController (Open CurrencyController.java for more details) and perform the next steps to retrieve the complex properties when user navigates to http://localhost:8080/currency-configuration
+   * We use @RestController annotation
+   * Our goal is to retrieve application.properties object information
+   * We need to create a class "CurrencyServiceConfiguration" so we can instantiate the object from, define private properties and define getters and setters
+   * We want to retrieve the properties information when we use http://localhost:8080/currency-configuration
+     * To do that we use @Autowired annotation and define as private CurrencyServiceConfiguration
+     * To do that we use @RequestMapping annotation on top of our method
+     * Define next to the @RequestMapping annotation the folder like below. Example: @RequestMapping("/currency-configuration")
+     * Return the values of configuration
+   * Now to run it we need to run LearnSpringBootApplication class
+   * Navigate to http://localhost:8080/currency-configuration
+   * It will display application.properties object information
