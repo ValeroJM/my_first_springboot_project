@@ -109,3 +109,30 @@ Check **"application.properties"** files:
    * Now to run it we need to run LearnSpringBootApplication class
    * Navigate to http://localhost:8080/currency-configuration
    * It will display application.properties object information
+
+## 8. I learned about Spring Boot Embedded Servers
+To embedded a server we need to do 2 things:
+1. Install Java
+2. Run JAR file
+
+Let's focus on the step 2:
+1. Let's generate the JAR file
+   * In Intellij navigate to the right bar were Maven icon is display and click on it
+   * Click on Lifecycle dropdown menu
+   * Click on install. It will trigger a process that will generate our JAR file
+   * In terminar, you will see that a location were the JAR file was created. Here is the example I got following the process:
+   ```
+   --- jar:3.3.0:jar (default-jar) @ learn-spring-boot ---
+   [INFO] Building jar: C:\Users\eihc2\Desktop\SpringBoot\learn-spring-boot\target\learn-spring-boot-0.0.1-SNAPSHOT.jar
+   ```
+2. Let's run the server in our terminal
+   * With the specific path for our project, look at previous last step, we open terminal and perform the next command to access the location of the file:
+   ```
+   cd C:/Users/eihc2/Desktop/SpringBoot/learn-spring-boot/target
+   ```
+   * After running the command we will access the folder where the JAR file is store. We can rul ls to verify that we are in the right location.
+   * To run the JAR file we type this in the command line:
+   ```
+   java -jar learn-spring-boot-0.0.1-SNAPSHOT.jar
+   ```
+   * We will be able to initialize our server in our localhost8080
