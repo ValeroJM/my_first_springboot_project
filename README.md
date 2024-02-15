@@ -136,3 +136,37 @@ Let's focus on the step 2:
    java -jar learn-spring-boot-0.0.1-SNAPSHOT.jar
    ```
    * We will be able to initialize our server in our localhost8080
+
+## 9. I learned about Spring Boot Actuator
+It will help us to monitor our application in production. To start using Actuator 
+1. We need to open our pom.xml 
+2. Add the actuator dependency to the pom.xml
+```
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+3. Now we can run our application by running our Spring Boot application LearnSpringBootApplication.java
+4. And finally we need to navigate to our localhost:8080/actuator/
+   * This will display JSON response with objects:
+     * **self** with a href to the actual response itself http://localhost:8080/actuator
+     * **health** with a href to http://localhost:8080/actuator/health . If click on the link we could see the status of the application.
+
+By default, Actuator will expose only health end-point if we want to enable/expose more end-points we need to enable them in the application.properties file.
+Here is the way to do that:
+1. Open application.properties file.
+2. Type this line to expose all the endpoints to Actuator. (See Example in application.properties)
+```
+management.endpoints.web.exposure.include=*
+```
+I will mention here some of the major endpoint to take in count:
+* **beans** with a href to http://localhost:8080/actuator/beans . It will show all the Spring Beans that are loaded.
+* **configprops** with a href to http://localhost:8080/actuator/configprops . It will show all the things we can configure in application.properties file.
+* **env** with a href to http://localhost:8080/actuator/env . It will show all the details about the environment.
+* **metrics** with a href to http://localhost:8080/actuator/metrics . It will show all the details about metrics. Here is an example adding http.server.requests to our endpoint: http://localhost:8080/actuator/metrics/http.server.requests . It will track the number of request, the minimal and maximal time for the response...
+
+If for instance we want to only expose a couple of endpoint like "health and metrics", we follow the same approach that we did with * but this time, we name the endpoints and separate then using comas. Like in the example below:
+```
+management.endpoints.web.exposure.include=health,metrics
+```
