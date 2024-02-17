@@ -170,3 +170,23 @@ If for instance we want to only expose a couple of endpoint like "health and met
 ```
 management.endpoints.web.exposure.include=health,metrics
 ```
+
+## 10. I learned the difference between Spring Boot vs Spring MVC vs Spring
+1. **Spring Framework:** depends on Dependency Injection
+* Using: @Component, @Autowired, Component Scan, etc...
+* Just Dependency Injection is NOT sufficient (We need other frameworks to build apps)
+  * Spring Modules and Spring Projects: Extend Spring Eco System
+    * Provided food integration with other frameworks:
+      * For Data Bases: Hibernate / JPA
+      * For Unit Testing: JUnit & Mockito
+2. **Spring MVC** (It is a Spring Module): It simplifies building web apps and REST API
+* Building web applications with Structs was very complex and Spring MVC made it easier
+* Using: @Controller, @RestController, @ RequestMapping("/courses")
+3. **Spring Boot** (It is a Spring Project): It builds PRODUCTION-READY apps QUICKLY
+* Start Projects - Makes it easy to build variety of applications
+* Auto Configuration - Eliminate configuration to set up Spring, Spring MVC and other frameworks
+* Enable non functional requirements (NFRs):
+  * **Actuator:** Enable Advance Monitoring of applications
+  * **Embedded Server:** No need for separate application servers
+  * Logging and Error Handling
+  * Profiles and ConfigurationProperties
